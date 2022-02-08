@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, ɵɵsetComponentScope } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Recipe } from '../../recipe.model';
 
 @Component({
   selector: 'app-recipe-item',
@@ -6,15 +7,15 @@ import { Component, OnInit, Input, ɵɵsetComponentScope } from '@angular/core';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent implements OnInit {
-  @Input() name: string = "";
-  @Input() description: string = "";
-  @Input() imagePath: string = "";
-  
+  @Input() recipe: Recipe;
+  @Output() recipeClicked = new EventEmitter<void>();
   constructor() {
    }
 
   ngOnInit(): void {
     
   }
-
+  onSelected(){
+    this.recipeClicked.emit();
+  }
 }

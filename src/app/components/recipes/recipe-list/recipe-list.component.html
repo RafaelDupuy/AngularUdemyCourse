@@ -6,9 +6,8 @@
 <hr>
 <div class="row">
     <app-recipe-item 
-    *ngFor="let recipe of recipes" 
-    name={{recipe.name}}
-    description={{recipe.description}}
-    imagePath={{recipe.imagePath}}>
+    *ngFor="let recipeEl of recipes" 
+    [recipe]="recipeEl"
+    (recipeClicked)= "recipeSelected(recipeEl)">
     </app-recipe-item>
 </div>
